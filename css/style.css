@@ -1,0 +1,352 @@
+body{
+    background-color: #ffffff;
+}
+
+/* .editor{
+    
+    display: grid;
+    grid-template-columns: 10px auto 10px;
+}
+
+.editor > div{
+    margin-left: 10px;
+    background-color: red;
+}
+.editor-main{
+    max-width: 80%;
+    min-width: 500px;
+} */
+/*
+*!Fazla yazı yazıldığında saçma sapan kafayı yiyor!(Çözüldü)
+* Şimdi de + butonuna basılınca saçma sapan hareket ediyor!
+*Link ekleme kısmı için bir çözüm düşünülmeli!
+*Alıntı yapma kısmındaki seç fonksiyonu 4 defa çalışıyor! Niye?
+
+*1) Resim yükleme +
+*2) Alıntı yapma! +
+*3) Veri tabanına gönderme!
+*4) Hata testleri yapmak amacıyla kendim için motivasyon yazıları yazıp test edeceğim(en az 2 yazı ve 500 kelime+)
+
+*/
+.text-header-container{
+    display: inline-block;
+    width: 65%;
+    min-height: 170px;
+    margin-top: 90px;
+    margin-left: 15%;
+
+    
+}
+.content-header-container{
+    display: inline-block;
+    /* border: 1px solid red; */
+    width: 60%;
+    min-height: 300px;
+    margin-left: 15%;
+}
+
+.header-input-flex-container-content{
+
+    /* height: 500px; */
+
+}
+
+button{
+    cursor: pointer;
+}
+
+.content-input-flex-container-content{
+    /* margin-bottom: 100px; */
+}
+.text-header-flex-container{
+    /* width: 100%; */
+    /* height: 500px; */
+    /* margin-top: 100px; */
+    /* border:1px solid blue; */
+}
+.text-main-container{
+    width: 90%;
+    height: 100px;
+    margin-top: 10px;
+    margin-left: 2%;
+    border: 1px solid rgba(206, 8, 130, 0.589);
+}
+
+.vertical-line{
+    display: inline-block;
+    float: left;
+    width: 1px;
+    min-height: 68px;
+    margin-left: 10px;
+    background-color: rgba(0,0,0,.54)!important;
+
+}
+
+.editor-section-container{
+    float: left;
+    min-width: 100px;
+    height: 68px;
+    /* border:1px solid green; */
+}
+.editor-main-section-container{
+    float: left;
+    min-width: 100px;
+    height: 68px;
+
+    /* border: 1px solid green; */
+}
+
+.editor-section-text{
+    text-align: center;
+    padding-top: 20px;
+    font-size: 25px;
+    font-family: 'Montserrat', sans-serif;
+    color: rgba(0,0,0,.54)!important;
+    display: none;
+}
+.editor-buttons{
+    float: right;
+
+    height: 50px;
+    margin-top: 10px;
+    /* border: 1px solid red; */
+
+}
+/*Editor Buttons*/
+.plus-button{
+    width: 45px;
+    height: 45px;
+    border-radius: 100%;
+    margin-left: 10px;
+    float: left;
+    background-color: transparent;
+    border: 1px solid black;
+}
+.image-button{
+    width: 45px;
+    height: 45px;
+    border-radius: 100%;
+    margin-left: 10px;
+    background-color: salmon;
+    float: left;
+    display: none;
+}
+.link-button{
+    width: 45px;
+    height: 45px;
+    border-radius: 100%;
+    margin-left: 10px;
+    float: left;
+    display: none;
+    background-color: darkslateblue;
+}
+
+
+.header-input{
+
+    width: 80%;
+    min-height: 68px;
+    background-color: #ffffff;
+    margin-top: 0px;
+    margin-left: 20px;
+    border: 0;
+    outline: 0;
+    padding-top: 20px;
+    /* border-bottom: 1px solid black; */
+    padding-left: 10px;
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+    color: black;
+    font-size: 35px;
+
+    float: left;
+    resize: none;
+    /* word-wrap: break-word; */
+    /* border: 1px solid blue; */
+    
+}
+.header-input::-webkit-scrollbar{
+    display: none;
+}
+
+#content-input{
+
+    width: 80%;
+    min-height: 68px;
+    background-color: #ffffff;
+    margin-top: 0px;
+    margin-left: 20px;
+    border: 0;
+    outline: 0;
+    padding-top: 20px;
+    /* border-bottom: 1px solid black; */
+    padding-left: 10px;
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+    color: black;
+    font-size: 28px;
+
+    /* float: left; */
+    resize: none;
+    /* border: 1px solid blue; */
+    margin-bottom: 150px;
+}
+#conten-input::-webkit-scrollbar{
+    display: none;
+}
+
+
+.select-text-box{
+    width: 500px;
+    height: 50px;
+    /* background-color: darkslateblue; */
+    margin-left: 150px;
+    position: fixed;
+    z-index: 2;
+    display: none;
+}
+
+.select-text-box-bold-button{
+    width: 50px;
+    height: 50px;
+    /* border: 1px solid red; */
+}
+
+.select-text-box-italic-button{
+    width: 50px;
+    height: 50px;
+}
+.select-text-box-link-button{
+    width: 50px;
+    height: 50px;
+}
+.select-text-box-quote-button{
+    width: 50px;
+    height: 50px;
+}
+.select-text-box-underline-button{
+    width: 50px;
+    height: 50px;
+}
+.select-text-box-highlighter-button{
+    width: 50px;
+    height: 50px;
+}
+.select-text-box-list-ul-button{
+    width: 50px;
+    height: 50px;
+}
+.select-text-box-image-button{
+    width: 50px;
+    height: 50px;
+}
+/*Buton Linklerinin Renklerini Ayarlama*/
+
+#bold-button-link, #italic-button-link, #link-button, #quote-button-link, #underline-button-link, #highlighter-button-link, #lis-ul-button-link, #image-button-link{
+    color: black;
+} 
+
+#bold-button-link:hover, #italic-button-link:hover, #link-button:hover, #quote-button-link:hover, #underline-button-link:hover, #highlighter-button-link:hover, #lis-ul-button-link:hover, #image-button-link:hover{
+    color:#1abc9c;
+}
+
+/*Başlık Giriş İnputu Placeholder Ayarlar*/
+[contenteditable=true]:empty:before{
+    content: attr(placeholder);
+    pointer-events: none;
+    /* display: block; For Firefox */
+    color: rgba(0,0,0,.54);
+
+}
+
+
+
+/*Editor İcons*/
+.editor-bold-icon{
+    font-size: 25px;
+    padding-top: 0px;
+    border:1px solid blue;
+}
+
+.first-container{
+    width: 100%;
+    height: 300px;
+}
+
+.second-container{
+    width: 100%;
+    height: 300px;
+}
+
+/*Link Almaya Basılınca Gelecek Popup Tasarımı*/
+.link-dialog{
+    position: fixed;
+    width: 380px;
+    height: 50px;
+    margin-left: 30%;
+    margin-top: 12%;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    background-color: #EFEFEF;
+    display: none;
+}
+.link-dialog-input{
+    width: 300px;
+    height: 30px;
+    margin-top: 10px;
+    margin-left: 10px;
+    border-radius: 3px;
+    border-bottom: 1px solid black;
+    padding-left: 10px;
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+.link-dialog-button{
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+}
+.alinti{
+    width: 500px;
+    min-height: 50px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-top: 20px;
+    padding-left: 20px;
+    border-left: 3px dashed black;
+    padding-bottom : 20px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px;
+  }
+
+ 
+/*Yeni Upload*/
+input[type="file"]{
+    display: none;
+  }
+  
+  .custom-image-upload{
+    width: 30px;
+    height: 34px;
+    border: none;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    background-color: #EFEFEF;
+  }
+  #upload-icon{
+    font-size: 26px;
+    text-align: center;
+    padding-left: 0px;
+    /* padding-top: 5px; */
+  }
+  .post-image{
+    max-width: 100%;
+    max-height: 400px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+    margin-top: 25px;
+    margin-bottom: 25px;
+    border-radius: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
