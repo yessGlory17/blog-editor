@@ -6,6 +6,7 @@
 - Bold Text
 - Blockquote Text
 - Underline Text
+- Editor Images Design
 
 ## Screenshoots
 ![First Day Image 1](https://github.com/yessGlory17/blog-editor/blob/master/Screnshoots/editor1.JPG)
