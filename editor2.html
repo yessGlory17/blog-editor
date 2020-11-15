@@ -329,6 +329,18 @@
                     });
 
                     
+                    //Alıntı kısmı takılı kalıyor o bug'ı çözmek için!
+                    $('[contenteditable]').on("keyup", function(e){
+
+                        //alert("Enter!");
+                        if (e.which || e.keyCode === 13) {
+                            if (document.queryCommandValue('formatBlock') === 'blockquote') {
+                                document.execCommand('formatBlock',0, '<p>')
+                            }
+                        }
+
+                    });
+
                     
                     /*
                     *İlk olarak image button yapısı değiştirilecek!
