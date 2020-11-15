@@ -32,12 +32,12 @@
             </div> -->
     
     
-            <div class="link-dialog">
+            <!-- <div class="link-dialog">
                 <input class="link-dialog-input" type="text" placeholder="Lütfen Linki Buraya Giriniz.">
                 <button class="link-dialog-button">
                     <i class="fas fa-check"></i>
                 </button>
-            </div>
+            </div> -->
            <!--Düzenleme Butonları!-->
             <div class="select-text-box">
                 <button class="select-text-box-bold-button">
@@ -46,19 +46,19 @@
                     <!-- </a> -->
                 </button>
                 <button class="select-text-box-italic-button">
-                   <a href="#" id="italic-button-link">
+                   <!-- <a href="#" id="italic-button-link"> -->
                         <i class="fas fa-italic"></i>
-                   </a>
+                   <!-- </a> -->
                 </button>
                 <button class="select-text-box-link-button">
-                    <a href="#" id="link-button">
+                    <!-- <a href="#" id="link-button"> -->
                         <i class="fas fa-link"></i>
-                    </a>
+                    <!-- </a> -->
                 </button>
                 <button class="select-text-box-quote-button" id="content-quote-button">
-                    <a href="#" id="quote-button-link" class="select-text-box-quote-button">
+                    <!-- <a href="#" id="quote-button-link" class="select-text-box-quote-button"> -->
                         <i class="fas fa-quote-right"></i>
-                    </a>
+                    <!-- </a> -->
                 </button>
                 <button class="select-text-box-underline-button" id="content-quote-button">
                     <a href="#" id="underline-button-link">
@@ -188,26 +188,7 @@
                 
             });
             
-            //Düzenleme butonlarına tıklarken + butonu tetikleniyor!
-            // $(".header-input").click(function(){
-            //    $(".header-input").attr("contenteditable","true") 
-            // });
-
-             //Önce Title Gizle!
-             //Eğer Başlık inputuna basıldıysa butonu gizle
-
-            //  $(".header-input").on("focus",function(){
-            //     //Başlık girişine basıldığında seçenek butonunu kapatır ve o bölgenin ismini göster
-
-            //     // $(".editor-buttons").css("display","none");
-            //     // $(".editor-section-text").css("display","flex")
-            //     $(".editor-buttons").fadeOut(10);
-            //     $(".editor-section-text").fadeIn(500);
-
-            //     // $(".vertical-line").height($(".header-input").height());
-            //     // $(".vertical-line").height($("#content-input").height());
-            //  })
-
+            
 
 
              $(".header-input").on("focusout",function(){
@@ -270,9 +251,10 @@
 
 
              //Yazı Seçme ve Düzenleme
+             var secilenYazi = null;
              var linkText = '';//Linke yazıyı aktarma
              $(".header-input").on("mouseup",function(event){
-                var secilenYazi = null;
+                
                 
                 //secilenYazi = YaziyiSec();
                 secilenYazi = document.getSelection() || document.selection.createRange();
@@ -316,9 +298,9 @@
                     })
 
                     $(".select-text-box-link-button").click(function(e){
-                        //alert();
-                        //e.preventDefault();
-                        setUrl(YaziyiSec());
+                        //Link ekler
+                        var alinanLink = prompt("Linki buraya giriniz : ");
+                        setUrl(YaziyiSec(),alinanLink);
                     });
 
                     $(".select-text-box-underline-button").click(function(e){
@@ -330,17 +312,18 @@
                     $(".select-text-box-highlighter-button").click(function(e){
                         //alert();
                         //e.preventDefault();
-                        if(!document.execCommand("HiliteColor",false,"#FFFC33")){
+                        if(document.execCommand("HiliteColor",false,"#FFFC33")){
                             document.execCommand("HiliteColor",false,"#FFFC33");
-                        }else{
-                            //document.execCommand("HiliteColor",false,"#000000");
                         }
+
+                        
                     });
 
                     $(".select-text-box-list-ul-button").click(function(e){
-                        //alert();
+                        alert();
+                        
                         //format('insertunorderedlist');
-                        document.execCommand('insertOrderedList');
+                        document.execCommand('insertOrderedList',false,YaziyiSec());
                         
                         
                     });
@@ -351,9 +334,6 @@
                     *İlk olarak image button yapısı değiştirilecek!
                     *Daha sonra css uygulanacak!
                     *Ardından jQuery kodu doğrudan o butonun tetiklenmesine dayanacak!
-                    
-                    
-                    
                     */
                     //Upload tetikleme!
                     
@@ -401,7 +381,7 @@
                     secilenYazi = '';
                 }else{
                     $(".select-text-box").fadeOut(1000)
-                    $(".link-dialog").fadeOut(1000)
+                    //$(".link-dialog").fadeOut(1000)
                 }
              })
 
@@ -427,21 +407,25 @@
 
 
             
-             function setUrl(adres){
+             function setUrl(secilen, adres){
                 //alert("Set Url Çalıştı")
                 //Bu fonksiyonun amacı metin düzenlemede link eklemek istendiği zaman bu link girişi yapıldığında linki yazıya eklemek.
                 
-                $(".link-dialog-button").click(function(){
-                    alert($(".link-dialog-input").val())
-                    var linkDialogText = $(".link-dialog-input").val();
-                    if(linkDialogText != ''){
-                        confirm("Bu boş değil");
-                        var url = linkDialogText;
-                        var sText = adres;
-                        document.execCommand('insertHTML', false, '<a href="' + url + '" target="_blank">' + sText + '</a>');
-                        document.getElementById(linkDialogText).value = '';
-                    }
-                })
+                var url = adres;
+                var sText = secilen;
+                console.log(sText);
+                document.execCommand('insertHTML', false, '<a href="' + url + '" >' + sText + '</a>');
+                //document.getElementById(linkDialogText).value = '';
+
+
+                // $(".link-dialog-button").click(function(){
+                //     alert($(".link-dialog-input").val())
+                //     var linkDialogText = $(".link-dialog-input").val();
+                //     if(linkDialogText != ''){
+                //         confirm("Bu boş değil");
+                        
+                //     }
+                // })
              }
 
 
@@ -460,14 +444,14 @@
              //Buradaki amaç link eklemek için basıldığında gelen inputun pozisyonunu link butonunun pozisyonuna eşitleyerek yana yana görünmesini sağlamak.
              $(".select-text-box-link-button").click(function(event){
                 //alert(); 
-                $(".link-dialog").fadeIn(1000);
+                //$(".link-dialog").fadeIn(1000);
 
-                var dialogPosition = $(".select-text-box-link-button").offset();
+                //var dialogPosition = $(".select-text-box-link-button").offset();
                 
-                $(".link-dialog").offset({
-                    top: dialogPosition.top,
-                    left : dialogPosition.left + 45
-                })
+                // $(".link-dialog").offset({
+                //     top: dialogPosition.top,
+                //     left : dialogPosition.left + 45
+                // })
              })
 
              
