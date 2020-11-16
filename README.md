@@ -20,6 +20,8 @@
 
 ![First Day Image 1](https://github.com/yessGlory17/blog-editor/blob/master/Screnshoots/editor5.JPG)
 
+![Third Day Image 1](https://github.com/yessGlory17/blog-editor/blob/master/Screnshoots/editor6.JPG)
+
 
 
 ## Run Xampp to upload images
