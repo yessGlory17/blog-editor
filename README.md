@@ -18,3 +18,8 @@
 ![First Day Image 4](https://github.com/yessGlory17/blog-editor/blob/master/Screnshoots/editor4.JPG)
 
 ![First Day Image 1](https://github.com/yessGlory17/blog-editor/blob/master/Screnshoots/editor5.JPG)
+
+
+
+## Run Xampp to upload images
+[Xampp Download Page](https://www.apachefriends.org/tr/download.html)
