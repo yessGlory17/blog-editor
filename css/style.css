@@ -41,7 +41,14 @@ body{
     display: inline-block;
     /* border: 1px solid red; */
     width: 60%;
-    min-height: 300px;
+    min-height: 400px;
+    margin-left: 15%;
+}
+.tag-input-container{
+    display: inline-block;
+    /* border: 1px solid red; */
+    width: 60%;
+    min-height: 600px;
     margin-left: 15%;
 }
 
@@ -84,8 +91,8 @@ button{
 
 .editor-section-container{
     float: left;
-    min-width: 100px;
-    height: 68px;
+    width: 100px;
+    min-height: 68px;
     /* border:1px solid green; */
 }
 .editor-main-section-container{
@@ -105,7 +112,7 @@ button{
     display: none;
 }
 .editor-buttons{
-    float: right;
+    /* float: right; */
 
     height: 50px;
     margin-top: 10px;
@@ -128,7 +135,8 @@ button{
     border-radius: 100%;
     margin-left: 10px;
     background-color: salmon;
-    float: left;
+    /* float: left; */
+    margin-top: 10px;
     display: none;
 }
 .link-button{
@@ -136,7 +144,8 @@ button{
     height: 45px;
     border-radius: 100%;
     margin-left: 10px;
-    float: left;
+    margin-top: 10px;
+    /* float: left; */
     display: none;
     background-color: darkslateblue;
 }
@@ -349,4 +358,58 @@ input[type="file"]{
     border-radius: 5px;
     margin-left: 10px;
     margin-right: 10px;
+  }
+
+  /*Tag İnput */
+  .tag-input-flex-container-content{
+    /* border: 1px solid black; */
+    padding: 20px;
+  }
+  
+  
+  .tag{
+    background-color: #dfe6e9;
+    font-family: 'Montserrat', sans-serif;
+    padding: 10px;
+    color: #000;
+    cursor: default;
+    font-size: 20px;
+    margin-left: 15px;
+    float: left;
+    border-radius: 5px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+    transition: box-shadow .5s, padding-left .5s, padding-right .5s;
+  }
+
+  .tag:hover{
+    padding-left: 15px;
+    padding-right: 15px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+    transition: box-shadow .5s, padding-left .5s, padding-right .5s;
+}
+  
+  .tag .tag-close{
+    font-size: 15px;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+  #tag-close-icon{
+    font-size: 15px;
+    color: black;
+    transition:  color .5s;
+  }
+
+  #tag-close-icon:hover{
+      color: red;
+      transition: color .5s;
+  }
+  
+  .tag-input{
+    outline: none;
+    height: 40px;
+    width: 150px;
+    margin-left: 5px;
+    padding-left: 5px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
   }

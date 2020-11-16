@@ -16,49 +16,20 @@
         <div class="editor-left"></div>
         <div class="editor-main">
 
-            <!-- <div class="image-upload">
-                <form action="" method="post" enctype="multipart/form-data" id="upload-image">
-                    <div class="preview">
-                        <img src="" alt="" class="preview-image">
-                        
-                    </div>
-                    <input type="file" class="input-file">
-                    <input class="upload-image-button" type="button" value="Upload">
-                        <a href="#" id="image-upload-link">
-                            <i class="fas fa-upload" id="upload-image-icon"></i>
-                        </a>
-                    </input>
-                </form>
-            </div> -->
-    
-    
-            <!-- <div class="link-dialog">
-                <input class="link-dialog-input" type="text" placeholder="Lütfen Linki Buraya Giriniz.">
-                <button class="link-dialog-button">
-                    <i class="fas fa-check"></i>
-                </button>
-            </div> -->
+            
            <!--Düzenleme Butonları!-->
             <div class="select-text-box">
                 <button class="select-text-box-bold-button">
-                    <!-- <a href="#" id="bold-button-link" class="select-text-box-bold-button"> -->
-                        <i class="fas fa-bold"></i>
-                    <!-- </a> -->
+                    <i class="fas fa-bold"></i>
                 </button>
                 <button class="select-text-box-italic-button">
-                   <!-- <a href="#" id="italic-button-link"> -->
-                        <i class="fas fa-italic"></i>
-                   <!-- </a> -->
+                    <i class="fas fa-italic"></i>
                 </button>
                 <button class="select-text-box-link-button">
-                    <!-- <a href="#" id="link-button"> -->
-                        <i class="fas fa-link"></i>
-                    <!-- </a> -->
+                    <i class="fas fa-link"></i>
                 </button>
                 <button class="select-text-box-quote-button" id="content-quote-button">
-                    <!-- <a href="#" id="quote-button-link" class="select-text-box-quote-button"> -->
                         <i class="fas fa-quote-right"></i>
-                    <!-- </a> -->
                 </button>
                 <button class="select-text-box-underline-button" id="content-quote-button">
                     <a href="#" id="underline-button-link">
@@ -75,11 +46,7 @@
                         <i class="fas fa-list-ul"></i>
                     </a>
                 </button>
-                <!-- <button class="select-text-box-image-button" id="content-quote-button">
-                    <a href="#" id="image-button-link">
-                        <i class="fas fa-image"></i>
-                    </a>
-                </button> -->
+              
     
                 <form action="" method="post" enctype="multipart/form-data" id="upload-image2">
                     <label class="custom-image-upload">
@@ -146,8 +113,44 @@
                 </div>
             </div>
             
-       </div>
-           
+        </div>
+        
+        
+        <div class="tag-input-container">
+            <div class="editor-section-container">
+                <div class="editor-buttons">
+                    <button class="plus-button" id="content-plus-button">
+                        <i class="fas fa-plus"></i>   
+                    </button>
+                    <button class="image-button" id="content-image-button">
+                        <i class="fas fa-image"></i>
+                    </button>
+                    <button class="link-button" id="content-link-button">
+                        <i class="fas fa-link"></i>
+                    </button>
+                    
+                </div>
+                <p class="editor-section-text" >
+                    Tags
+                </p>
+            </div>
+           <div class="vertical-line">
+                
+            </div> 
+            <div class="text-header-flex-container">
+                <div class="tag-input-flex-container-content">
+                    <!-- <div contenteditable="true" class="header-input" id="content-input" placeholder="Burada hikayeni anlat!"></div> -->
+                    <!-- <span class="tag">
+                        <span class="tag-content"> Test
+                         
+                        </span>
+                        <span class="tag-close"> X </span>
+                    </span> -->
+                    <input type="text" class="tag-input" placeholder="Etiketi Giriniz">
+                </div>
+            </div>
+            
+        </div>
                 
             
     
@@ -194,19 +197,18 @@
              $(".header-input").on("focusout",function(){
                
                //Başlık girişi inputundan çıktığında bölge ismini kapatır ve seçenek butonunu açar!
-                $(".editor-section-text").css("display","none");
-                $(".editor-buttons").css("display","flex");
+                $(".editor-section-text").css("display","flex");
+                $(".editor-buttons").css("display","none");
 
              })
 
+            
 
              //Artı butonuna basıldığında diğer içerik ekleme butonlarını gösterir
              var editorButtons1Show = false; //Editor butonunun görünürlüğünü kontrol eder.
              $("#header-plus-button").click(function(){
                  //alert();
                 if(!editorButtons1Show){
-                    // $(".image-button").css("display","block");
-                    // $(".link-button").css("display","block");
                     $("#header-image-button").fadeIn(500);
                     $("#header-link-button").fadeIn(500);
 
@@ -214,8 +216,6 @@
 
                 }else{
 
-                    // $(".image-button").css("display","none")
-                    // $(".link-button").css("display","none")
 
                     $("#header-image-button").fadeOut(500);
                     $("#header-link-button").fadeOut(500);
@@ -229,18 +229,12 @@
              $("#content-plus-button").click(function(){
                  //alert();
                 if(!editorButtons2Show){
-                    // $(".image-button").css("display","block");
-                    // $(".link-button").css("display","block");
-                    
                     $("#content-image-button").fadeIn(500);
                     $("#content-link-button").fadeIn(500);
 
                     editorButtons2Show = !editorButtons2Show;
 
                 }else{
-
-                    // $(".image-button").css("display","none")
-                    // $(".link-button").css("display","none")
 
                     $("#content-image-button").fadeOut(500);
                     $("#content-link-button").fadeOut(500);
@@ -255,13 +249,11 @@
              var linkText = '';//Linke yazıyı aktarma
              $(".header-input").on("mouseup",function(event){
                 
+                var aralik = new Range();
                 
                 //secilenYazi = YaziyiSec();
                 secilenYazi = document.getSelection() || document.selection.createRange();
-                //linkText = YaziyiSec();
-                //console.log(secilenYazi);
-                //alert(secilenYazi);
-
+                
                 var mPos = {
                     x  : event.pageX,
                     y : event.pageY
@@ -342,11 +334,7 @@
                     });
 
                     
-                    /*
-                    *İlk olarak image button yapısı değiştirilecek!
-                    *Daha sonra css uygulanacak!
-                    *Ardından jQuery kodu doğrudan o butonun tetiklenmesine dayanacak!
-                    */
+                    
                     //Upload tetikleme!
                     
                     $("#yukle").change(function(){
@@ -430,14 +418,6 @@
                 //document.getElementById(linkDialogText).value = '';
 
 
-                // $(".link-dialog-button").click(function(){
-                //     alert($(".link-dialog-input").val())
-                //     var linkDialogText = $(".link-dialog-input").val();
-                //     if(linkDialogText != ''){
-                //         confirm("Bu boş değil");
-                        
-                //     }
-                // })
              }
 
 
@@ -449,25 +429,78 @@
                     //alert("Boş yakalandı!");
                     document.execCommand('insertHTML', false, '<blockquote class="alinti">' + secilenText + '</blockquote>');
                 }
-                //alert(secilenText[0])
+                
                 
              }
 
-             //Buradaki amaç link eklemek için basıldığında gelen inputun pozisyonunu link butonunun pozisyonuna eşitleyerek yana yana görünmesini sağlamak.
-             $(".select-text-box-link-button").click(function(event){
-                //alert(); 
-                //$(".link-dialog").fadeIn(1000);
 
-                //var dialogPosition = $(".select-text-box-link-button").offset();
+             //Etiket İnputu
+            var tags = []
+            var createdTags = []
+            function CreateTags(){
+                $.each(tags,function(index,item){
+                    //alert(item)
+                    if(jQuery.inArray(item,createdTags) == -1){
+                        //alert(item)
+                        var newTag = '<span class="tag" id="'+ index + '">' + 
+                        '<span class="tag-content">'+ item +
+                            
+                        '</span>' + 
+                        '<span class="tag-close"> <i id="tag-close-icon" class="far fa-trash-alt"></i> </span>'+
+                        '</span>';
+                        createdTags.push(item);
+                        $(".tag-input-flex-container-content").append(newTag);
+                    }
                 
-                // $(".link-dialog").offset({
-                //     top: dialogPosition.top,
-                //     left : dialogPosition.left + 45
-                // })
-             })
+                })
+            }
+             
+        
+            CreateTags();
+
+
+            //Enter'a basıldığında yeni etiket oluşturmak için!
+            $(".tag-input").keyup(function(event){
+
+                //Tuşa basıldığında tetiklenen eventin hangi tuş olduğuna bakıyorum.
+                if(event.which == 13 && tags.length < 5){
+                    //Eğer tuş enter ise yeni etiket oluşturuyor!
+                    var tag = $(".tag-input").val();
+                    //alert(tag.length)
+                    //Girilen verinin uzunluğunu kontrol ediyorum.
+                    if(tag.length > 0 && tag != null){
+                        tags.push(tag.toLowerCase());
+
+                        CreateTags();
+                        
+                        $(".tag-input").val('');
+                    }
+
+                    
+                }else if(tags.length >= 5){
+                    // $(".tag-input").val('');
+                    // $(".tag-input").val('Sadece 5 Etiket Yazabilirsiniz!');
+                    alert("Sadece 5 Adet Etiket Girebilirsiniz!")
+                }
+
+                
+            })
+
+
+            //Etiketi silmek için!
+            $(".tag-input-flex-container-content").on("click",".tag-close",function(){
+                var tagID = $(this).parent().attr("id");
+                tagID = "#" + tagID;
+                alert(tags);
+                //alert($(tagID).find(".tag-content").text());
+                var silinecekEtiket = $(tagID).find(".tag-content").text();
+                tags.pop(silinecekEtiket);
+                alert(tags);
+                $(this).parent().remove();
+            })
 
              
-         })
+})
     </script>
 </body>
 </html>
