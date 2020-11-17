@@ -28,6 +28,7 @@
   ![Third Day Image 2](https://github.com/yessGlory17/blog-editor/blob/master/Screnshoots/d-editor1.JPG)
   ![Third Day Image 1](https://github.com/yessGlory17/blog-editor/blob/master/Screnshoots/d-editor2.JPG)
   ![Third Day Image 1](https://github.com/yessGlory17/blog-editor/blob/master/Screnshoots/d-editor3.JPG)
+  ![Third Day Image 1](https://github.com/yessGlory17/blog-editor/blob/master/Screnshoots/d-editor4.JPG)
 
 
 ## Run Xampp to upload images
