@@ -59,7 +59,7 @@
     
             <div class="text-header-container">
                 <div class="editor-section-container">
-                    <div class="editor-buttons" >
+                    <!-- <div class="editor-buttons" >
                         <button class="plus-button" id="header-plus-button">
                             <i class="fas fa-plus"></i>   
                         </button>
@@ -69,7 +69,7 @@
                         <button class="link-button" id="header-link-button">
                             <i class="fas fa-link"></i>
                         </button>
-                    </div>
+                    </div> -->
                     <p class="editor-section-text" >
                         Title
                     </p>
@@ -87,7 +87,7 @@
            </div>
            <div class="content-header-container">
             <div class="editor-section-container">
-                <div class="editor-buttons">
+                <!-- <div class="editor-buttons">
                     <button class="plus-button" id="content-plus-button">
                         <i class="fas fa-plus"></i>   
                     </button>
@@ -98,7 +98,7 @@
                         <i class="fas fa-link"></i>
                     </button>
                     
-                </div>
+                </div> -->
                 <p class="editor-section-text" >
                     Content
                 </p>
@@ -118,7 +118,7 @@
         
         <div class="tag-input-container">
             <div class="editor-section-container">
-                <div class="editor-buttons">
+                <!-- <div class="editor-buttons">
                     <button class="plus-button" id="content-plus-button">
                         <i class="fas fa-plus"></i>   
                     </button>
@@ -129,7 +129,7 @@
                         <i class="fas fa-link"></i>
                     </button>
                     
-                </div>
+                </div> -->
                 <p class="editor-section-text" >
                     Tags
                 </p>
@@ -194,13 +194,13 @@
             
 
 
-             $(".header-input").on("focusout",function(){
+            //  $(".header-input").on("focusout",function(){
                
-               //Başlık girişi inputundan çıktığında bölge ismini kapatır ve seçenek butonunu açar!
-                $(".editor-section-text").css("display","flex");
-                $(".editor-buttons").css("display","none");
+            //    //Başlık girişi inputundan çıktığında bölge ismini kapatır ve seçenek butonunu açar!
+            //     $(".editor-section-text").css("display","flex");
+            //     $(".editor-buttons").css("display","none");
 
-             })
+            //  })
 
             
 
@@ -477,10 +477,11 @@
                     }
 
                     
-                }else if(tags.length >= 5){
+                }else if(event.which == 13 && tags.length >= 5){
                     // $(".tag-input").val('');
                     // $(".tag-input").val('Sadece 5 Etiket Yazabilirsiniz!');
                     alert("Sadece 5 Adet Etiket Girebilirsiniz!")
+                    $(".tag-input").val('');
                 }
 
                 
@@ -491,13 +492,16 @@
             $(".tag-input-flex-container-content").on("click",".tag-close",function(){
                 var tagID = $(this).parent().attr("id");
                 tagID = "#" + tagID;
-                alert(tags);
+                //alert(tags);
                 //alert($(tagID).find(".tag-content").text());
                 var silinecekEtiket = $(tagID).find(".tag-content").text();
                 tags.pop(silinecekEtiket);
-                alert(tags);
+                //alert(tags);
                 $(this).parent().remove();
             })
+
+
+            //Burada Veri Tabanına Editör İçindekiler Gönderilecek!
 
              
 })
