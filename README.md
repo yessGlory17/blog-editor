@@ -7,6 +7,7 @@
 - Blockquote Text
 - Underline Text
 - Editor Images Design
+- Tag Input
 
 ## Screenshoots
 ![First Day Image 1](https://github.com/yessGlory17/blog-editor/blob/master/Screnshoots/editor1.JPG)
@@ -18,6 +19,8 @@
 ![First Day Image 4](https://github.com/yessGlory17/blog-editor/blob/master/Screnshoots/editor4.JPG)
 
 ![First Day Image 1](https://github.com/yessGlory17/blog-editor/blob/master/Screnshoots/editor5.JPG)
+
+![Third Day Image 1](https://github.com/yessGlory17/blog-editor/blob/master/Screnshoots/editor6.JPG)
 
 
 
