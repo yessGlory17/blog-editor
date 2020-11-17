@@ -1,10 +1,13 @@
+
 body{
-    background-color: #ffffff;
+    background-color: #121212;
+    
 }
 
 body::-webkit-scrollbar {
     display: none;
-  }
+}
+
 
 /* .editor{
     
@@ -89,7 +92,7 @@ button{
     width: 1px;
     min-height: 68px;
     margin-left: 10px;
-    background-color: rgba(0,0,0,.54)!important;
+    background-color: #A9A9A9 !important;
 
 }
 
@@ -112,7 +115,7 @@ button{
     padding-top: 20px;
     font-size: 25px;
     font-family: 'Montserrat', sans-serif;
-    color: rgba(0,0,0,.54)!important;
+    color: #A9A9A9 !important;
     /* display: none; */
 }
 .editor-buttons{
@@ -169,7 +172,7 @@ button{
     padding-left: 10px;
     border: none;
     font-family: 'Montserrat', sans-serif;
-    color: black;
+    color: white;
     font-size: 35px;
 
     float: left;
@@ -196,7 +199,7 @@ button{
     padding-left: 10px;
     border: none;
     font-family: 'Montserrat', sans-serif;
-    color: black;
+    color: white;
     font-size: 28px;
 
     /* float: left; */
@@ -222,36 +225,69 @@ button{
 .select-text-box-bold-button{
     width: 50px;
     height: 50px;
+    background-color:  #1E1E1E;
     /* border: 1px solid red; */
+}
+
+.select-text-box-bold-button > i {
+    color: #A9A9A9;
 }
 
 .select-text-box-italic-button{
     width: 50px;
     height: 50px;
+    background-color:  #1E1E1E;
 }
+
+.select-text-box-italic-button > i {
+    color: #A9A9A9;
+}
+
 .select-text-box-link-button{
     width: 50px;
     height: 50px;
+    background-color:  #1E1E1E;
+}
+
+.select-text-box-link-button > i {
+    color: #A9A9A9;
 }
 .select-text-box-quote-button{
     width: 50px;
     height: 50px;
+    background-color:  #1E1E1E;
+}
+
+.select-text-box-quote-button > i {
+    color: #A9A9A9;
 }
 .select-text-box-underline-button{
     width: 50px;
     height: 50px;
+    background-color:  #1E1E1E;
+}
+
+.select-text-box-underline-button > i {
+    color: #A9A9A9;
 }
 .select-text-box-highlighter-button{
     width: 50px;
     height: 50px;
+    background-color:  #1E1E1E;
+}
+
+.select-text-box-highlighter-button > i {
+    color: #A9A9A9;
 }
 .select-text-box-list-ul-button{
     width: 50px;
     height: 50px;
+    background-color:  #1E1E1E;
 }
 .select-text-box-image-button{
     width: 50px;
     height: 50px;
+    background-color:  #1E1E1E;
 }
 /*Buton Linklerinin Renklerini Ayarlama*/
 
@@ -268,7 +304,7 @@ button{
     content: attr(placeholder);
     pointer-events: none;
     /* display: block; For Firefox */
-    color: rgba(0,0,0,.54);
+    color:#A9A9A9;
 
 }
 
@@ -326,7 +362,7 @@ button{
     margin-bottom: 20px;
     padding-top: 20px;
     padding-left: 20px;
-    border-left: 3px dashed black;
+    border-left: 3px dashed white;
     padding-bottom : 20px;
     font-family: 'Raleway', sans-serif;
     font-size: 20px;
@@ -345,12 +381,13 @@ input[type="file"]{
     display: inline-block;
     padding: 6px 12px;
     cursor: pointer;
-    background-color: #EFEFEF;
+    background-color: #1e1e1e;
   }
   #upload-icon{
     font-size: 26px;
     text-align: center;
     padding-left: 0px;
+    color: white;
     /* padding-top: 5px; */
   }
   .post-image{
@@ -375,7 +412,7 @@ input[type="file"]{
   
   
   .tag{
-    background-color: #dfe6e9;
+    background-color: #1E1E1E;
     font-family: 'Montserrat', sans-serif;
     padding: 10px;
     /* margin-top: 10px; */
@@ -403,7 +440,7 @@ input[type="file"]{
   }
   #tag-close-icon{
     font-size: 15px;
-    color: black;
+    color: white;
     transition:  color .5s;
   }
 
@@ -421,4 +458,5 @@ input[type="file"]{
     padding-left: 5px;
     font-family: 'Montserrat', sans-serif;
     font-size: 20px;
+    color: white;
   }
