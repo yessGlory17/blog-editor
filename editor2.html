@@ -6,13 +6,49 @@
     <title>Editor</title>
     <link rel="stylesheet" href="./css/reset.css">
     <!-- <link rel="stylesheet" href="./css/style.css"> -->
-    <link rel="stylesheet" href="./css/dark.css">
+    <link id="color-mode-link" rel="stylesheet" href="./css/style.css">
     <script src="./jquery/jquery-3.5.1.min.js"></script>
+    <script src="./jquery/jquery.cookie.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/1389171202.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
     
 </head>
 <body class="dark">
+    <div class="navbar">
+        <div class="logo-container"></div>
+        <div class="navbar-buttons">
+            <div class="home" style="cursor: pointer; float: left;">
+                <a href="#" class="home-link">
+                    <i class="fa fa-home" style="font-size: 25px;"></i>
+                </a>
+            </div>
+            <div class="editor-posts" style="cursor: pointer; float: left;">
+                <a href="#" class="editor-posts-link">
+                    <i class="fa fa-file-alt"></i>
+                </a>
+            </div>
+            <div class="editor" style="cursor: pointer; float: left;">
+                <a href="#" class="editor-link">
+                    <i class="fas fa-feather-alt"></i>
+                </a>
+            </div>
+        </div>
+        
+        <div class="login-logout">
+            <div class="checkbox-container">
+                <input type="checkbox" class="checkbox" id="darkmode-checkbox" />
+                <label class="label" for="darkmode-checkbox">
+                    <i class="fas fa-moon"></i>
+                    <i class="fas fa-sun"></i>
+                    <div class="ball"></div>
+                </label>
+            </div>
+        </div>
+    </div>
+
+
     <div class="editor">
         <div class="editor-left"></div>
         <div class="editor-main">
@@ -162,6 +198,9 @@
         
          $(document).ready(function(){
 
+            //cookieye göre renk modu ayarı!
+            CheckMode();
+            
             //Burada editöre bir metin yapıştırılırsa onu kendi stilinde yapıştırmasını sağlıyorum. Yoksa seçilen metinin özellikleri gelir!
             $('[contenteditable]').on('paste',function(e) {
         
@@ -305,8 +344,12 @@
                     $(".select-text-box-highlighter-button").click(function(e){
                         //alert();
                         //e.preventDefault();
-                        if(document.execCommand("HiliteColor",false,"#FFFC33")){
-                            document.execCommand("HiliteColor",false,"#FFFC33");
+                        var mode = localStorage.getItem('dark-mode');
+                        if(mode == 'true'){
+                            document.execCommand("HiliteColor",false,"#FFFC33")
+                            document.execCommand("foreColor",false,"#000")
+                        }else{
+                            document.execCommand("HiliteColor",false,"#FFFC33")
                         }
 
                         
@@ -498,10 +541,65 @@
                 var silinecekEtiket = $(tagID).find(".tag-content").text();
                 tags.pop(silinecekEtiket);
                 //alert(tags);
+                $(this).parent().fadeOut(3000)
                 $(this).parent().remove();
             })
 
 
+            //Navbar
+            /*
+            *- Yazı yayımlama butonu
+            *- Dark / Light mod 
+            */
+
+
+            //Dark mode Chechbox
+            $("#darkmode-checkbox").change(function(){
+                //alert();
+                if($(this).is(":checked")){
+                    $(this).attr("checked", true);
+                    if($(this).attr("checked")){
+                        //Eğer check edildiyse karanlık moda geçir!
+                        $("#color-mode-link").attr("href","./css/style.css");
+                        
+                        //Mod için cookie ayarlıyorum
+                        localStorage.setItem('dark-mode','false');
+                        $(".ball").css({'transform' : 'translateX(24px)'});
+                        //alert(localStorage.getItem('dark-mode'));
+                    }
+                }else{
+                    $(this).attr("checked", false);
+                    if(!$(this).attr("checked")){
+                        //Eğer check edildiyse karanlık moda geçir!
+                        $("#color-mode-link").attr("href","./css/dark.css").fadeIn(1000);
+
+                        //Mode için cookie ayarlıyorum
+                        
+                        localStorage.setItem('dark-mode','true');
+                        $(".ball").css({'transform' : 'translateX(0px)'});
+                        //alert(localStorage.getItem('dark-mode'));
+                        
+                    }
+                }
+            });
+
+
+            function CheckMode(){
+                var mode = localStorage.getItem('dark-mode');
+                if(mode == 'true'){
+                    //alert("Dark mode aktif");
+                    $("#color-mode-link").attr("href","./css/dark.css").fadeIn(1000);
+                    //$(".ball").css({'transform' : 'translateX(0px)'});
+                    
+                    //$("#darkmode-checkbox").attr("checked",false);
+                }else{
+                    //alert("Light mode aktif!")
+                    $("#color-mode-link").attr("href","./css/style.css").fadeIn(1000);
+                    //$(".ball").css({left:25});
+                    //$(".ball").css({'transform' : 'translateX(24px)','transition' : 'transform 0.2s linear'})
+                   $(".ball").css({'transform' : 'translateX(24px)'});
+                }
+            }
             //Burada Veri Tabanına Editör İçindekiler Gönderilecek!
 
              
