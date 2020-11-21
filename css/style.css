@@ -61,6 +61,7 @@ body::-webkit-scrollbar {
     float: right;
     margin-right: 50px;
 }
+
 .submit-post{
     width: 100px;
     height: 35px;
@@ -82,27 +83,35 @@ body::-webkit-scrollbar {
     transition:  display 3s;
 }
 
-.submit-post:hover > i#submit-post-icon{
+.submit-post:hover > #submit-post-icon{
     display: inline-block;
-    transition: display 1s;
+    opacity: 1;
+    visibility: visible;
+    transition: all 5s linear 0.4s;
 }
 .submit-text{
     margin-right: 10px;
     font-size: 21px;
-    padding-left: 15px;
+    padding-left: 10px;
     padding-top: 5px;
+    font-family: 'Montserrat', sans-serif;
     color: #26de81;
 }
 #submit-post-icon{
     padding-top: 3px;
     font-size: 25px; 
+    margin-right: 10px;
     color: #26de81;
     display: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 5s linear 0.4s;
 }
 #submit-post-icon:hover{
     color: #26de81;
     
 }
+
 
 /*Navbar Links*/
 .menu-button{
