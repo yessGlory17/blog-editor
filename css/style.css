@@ -6,6 +6,28 @@ body::-webkit-scrollbar {
     display: none;
 }
 
+.editor{
+    display: flex;
+}
+.editor-main{
+    flex-grow: 1;
+}
+.editor-main > div[contenteditable="true"]{
+    flex-grow: 1;
+    border: 1px solid red;
+}
+
+.editor-left{
+    width: 5px;
+    height: 100vh;
+    /* background-color: #78e08f; */
+}
+
+.editor-right{
+    width: 5px;
+    height: 100vh;
+    /* background-color: #78e08f; */
+}
 /*  Navbar  */
 .navbar{
     width: 100%;
@@ -22,14 +44,14 @@ body::-webkit-scrollbar {
     margin-left: 20px;
     float: left;
 }
-.navbar-buttons{
-    max-width: 500px;
-    min-width: 400px;
-    height: 40px;
+.submit-button-container{
+    max-width: 30px;
+    min-width: 30px;
+    height: 30px;
     /* border: 1px solid red; */
-    margin-left: 350px;
+    margin-right: 70px;
     margin-top: 15px;
-    float: left;
+    float: right;
 }
 .login-logout{
     max-width: 300px;
@@ -39,8 +61,55 @@ body::-webkit-scrollbar {
     float: right;
     margin-right: 50px;
 }
+.submit-post{
+    width: 100px;
+    height: 35px;
+    float: left;
+    display: flex;
+    margin-right: 100px;
+    margin-top: 5px;
+    border: 1px solid #26de81;
+    border-radius: 5px;
+    transition: width .5s;
+}
+.submit-post:hover{
+    width: 125px;
+    transition: width .3s;
+}
+
+.submit-post:hover > p.submit-text{
+    /* display: none; */
+    transition:  display 3s;
+}
+
+.submit-post:hover > i#submit-post-icon{
+    display: inline-block;
+    transition: display 1s;
+}
+.submit-text{
+    margin-right: 10px;
+    font-size: 21px;
+    padding-left: 15px;
+    padding-top: 5px;
+    color: #26de81;
+}
+#submit-post-icon{
+    padding-top: 3px;
+    font-size: 25px; 
+    color: #26de81;
+    display: none;
+}
+#submit-post-icon:hover{
+    color: #26de81;
+    
+}
 
 /*Navbar Links*/
+.menu-button{
+    cursor: pointer; 
+    float: left; 
+    color: black;
+}
 .home-link{
     font-size: 20px;
     margin-left: 40px;
@@ -115,7 +184,26 @@ body::-webkit-scrollbar {
       color: #f39c12;
   }
 
+/*Side Menu*/
 
+/*Side Menu*/
+
+.side-menu-container{
+    width: 50px;
+    min-height: 70vh;
+    position: fixed;
+    margin-top: 100px;
+    background-color: #1E1E1E;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+    border-radius: 50px;
+    display: none;
+    z-index: 2;
+    margin-left: 10px;
+}
+
+.home{
+    margin-top: 100px;
+}
 
 
 /* .editor{
@@ -186,6 +274,9 @@ button{
     /* height: 500px; */
     /* margin-top: 100px; */
     /* border:1px solid blue; */
+    /* border:1px solid blue; */
+
+    display: flex;
 }
 .text-main-container{
     width: 90%;
@@ -269,7 +360,8 @@ button{
 
 .header-input{
 
-    width: 80%;
+    max-width: 800px;
+    min-width: 100px;
     min-height: 68px;
     background-color:transparent;
     margin-top: 0px;
@@ -277,7 +369,7 @@ button{
     border: 0;
     outline: 0;
     padding-top: 20px;
-    /* border-bottom: 1px solid black; */
+    /* border-bottom: 1px solid red; */
     padding-left: 10px;
     border: none;
     font-family: 'Montserrat', sans-serif;
@@ -287,7 +379,7 @@ button{
     float: left;
     resize: none;
     /* word-wrap: break-word; */
-    /* border: 1px solid blue; */
+    /* border: 1px solid red; */
     
 }
 .header-input::-webkit-scrollbar{
@@ -296,7 +388,8 @@ button{
 
 #content-input{
 
-    width: 80%;
+    max-width: 800px;
+    min-width: 100px;
     min-height: 68px;
     background-color: transparent;
     margin-top: 0px;
@@ -315,7 +408,7 @@ button{
     letter-spacing: -.003em;
     /* float: left; */
     resize: none;
-    /* border: 1px solid blue; */
+    /* border: 1px solid red; */
     margin-bottom: 150px;
 }
 #conten-input::-webkit-scrollbar{

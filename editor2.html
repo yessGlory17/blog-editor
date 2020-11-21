@@ -17,26 +17,23 @@
 </head>
 <body class="dark">
     <div class="navbar">
+        <div class="menu-button">
+            <i class="fas fa-bars" style="font-size: 30px; padding-top: 10px; padding-left: 20px;"></i>
+          </div>
         <div class="logo-container"></div>
-        <div class="navbar-buttons">
-            <div class="home" style="cursor: pointer; float: left;">
-                <a href="#" class="home-link">
-                    <i class="fa fa-home" style="font-size: 25px;"></i>
-                </a>
-            </div>
-            <div class="editor-posts" style="cursor: pointer; float: left;">
-                <a href="#" class="editor-posts-link">
-                    <i class="fa fa-file-alt"></i>
-                </a>
-            </div>
-            <div class="editor" style="cursor: pointer; float: left;">
-                <a href="#" class="editor-link">
-                    <i class="fas fa-feather-alt"></i>
-                </a>
-            </div>
+        <div class="submit-button-container">
+            <!--  -->
+            
         </div>
         
         <div class="login-logout">
+            
+
+            <div class="submit-post" style="cursor: pointer;">
+                <p class="submit-text"> Yayınla</p>
+                <i id="submit-post-icon" class="fas fa-check" ></i>
+            </div>
+
             <div class="checkbox-container">
                 <input type="checkbox" class="checkbox" id="darkmode-checkbox" />
                 <label class="label" for="darkmode-checkbox">
@@ -45,9 +42,28 @@
                     <div class="ball"></div>
                 </label>
             </div>
+
+            
         </div>
     </div>
 
+    <!-- <div class="side-menu-container">
+        <div class="home" style="cursor: pointer; float: left;">
+            <a href="#" class="home-link">
+                <i class="fa fa-home" style="font-size: 25px;"></i>
+            </a>
+        </div>
+        <div class="editor-posts" style="cursor: pointer; float: left;">
+            <a href="#" class="editor-posts-link">
+                <i class="fa fa-file-alt"></i>
+            </a>
+        </div>
+        <div class="editor" style="cursor: pointer; float: left;">
+            <a href="#" class="editor-link">
+                <i class="fas fa-feather-alt"></i>
+            </a>
+        </div>
+    </div> -->
 
     <div class="editor">
         <div class="editor-left"></div>
@@ -200,6 +216,23 @@
 
             //cookieye göre renk modu ayarı!
             CheckMode();
+
+
+            //Yan Menüyü açar kapatır.
+            var isOpenMenu = false;
+            $(".menu-button").click(function(){
+                if(!isOpenMenu){
+                    $(".side-menu-container").slideDown(1000);
+
+                    isOpenMenu = !isOpenMenu;
+                    console.log(isOpenMenu);
+                }else{
+                    $(".side-menu-container").slideUp(1000);
+
+                    isOpenMenu = !isOpenMenu;
+                    console.log(isOpenMenu);
+                }
+            });
             
             //Burada editöre bir metin yapıştırılırsa onu kendi stilinde yapıştırmasını sağlıyorum. Yoksa seçilen metinin özellikleri gelir!
             $('[contenteditable]').on('paste',function(e) {
@@ -265,23 +298,23 @@
              })
 
              //İçerik + butonunu kontrol eder.
-             var editorButtons2Show = false;
-             $("#content-plus-button").click(function(){
-                 //alert();
-                if(!editorButtons2Show){
-                    $("#content-image-button").fadeIn(500);
-                    $("#content-link-button").fadeIn(500);
+            //  var editorButtons2Show = false;
+            //  $("#content-plus-button").click(function(){
+            //      //alert();
+            //     if(!editorButtons2Show){
+            //         $("#content-image-button").fadeIn(500);
+            //         $("#content-link-button").fadeIn(500);
 
-                    editorButtons2Show = !editorButtons2Show;
+            //         editorButtons2Show = !editorButtons2Show;
 
-                }else{
+            //     }else{
 
-                    $("#content-image-button").fadeOut(500);
-                    $("#content-link-button").fadeOut(500);
+            //         $("#content-image-button").fadeOut(500);
+            //         $("#content-link-button").fadeOut(500);
 
-                    editorButtons2Show = !editorButtons2Show;
-                }
-             })
+            //         editorButtons2Show = !editorButtons2Show;
+            //     }
+            //  })
 
 
              //Yazı Seçme ve Düzenleme
@@ -311,6 +344,7 @@
                         //e.preventDefault();
                         //Yazıyı Kalınlaştıracak Fonksiyonu çağırıyoruz.
                         format('bold');
+                        //addBold(document.getSelection() || document.selection.createRange())
                     })
 
                     //Yazıyı Düzenlemek İçin Yanaeğme Butonu
@@ -446,7 +480,10 @@
              //Yazıyı Düzenleme Fonksiyonu
              function format(command,value){
                  //alert();
-                 document.execCommand(command,false,value);
+                 var alinan = value;
+                if(alinan != ''){
+                    document.execCommand(command,false,alinan);
+                }
              }
 
 
@@ -475,6 +512,14 @@
                 }
                 
                 
+             }
+
+             function addBold(secilen){
+                var secilenText = secilen;
+                if(secilenText != ''){
+                    //alert("Boş yakalandı!");
+                    document.execCommand('insertHTML', false, '<strong>' + secilenText + '</strong>');
+                }
              }
 
 
@@ -545,6 +590,13 @@
                 $(this).parent().remove();
             })
 
+
+            function EditText(){
+                var highlight = window.getSelection();  
+                var span = '<span class="bold">' + highlight + '</span>';
+                var text = $('.textEditor').html();
+                $('.textEditor').html(text.replace(highlight, span));
+            }
 
             //Navbar
             /*
